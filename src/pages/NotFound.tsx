@@ -16,11 +16,9 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4 py-12">
-      <img 
-        src="/public/lovable-uploads/10cd6829-3061-4a7b-8551-9b0b5badcd43.png" 
-        alt="Tech Team Logo" 
-        className="h-24 w-24 mb-8"
-      />
+      <div className="h-24 w-24 bg-techgold rounded-2xl flex items-center justify-center mb-8">
+        <span className="text-white font-bold text-3xl">TT</span>
+      </div>
       <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">404</h1>
       <p className="text-xl md:text-2xl text-gray-600 mb-8 text-center">Oops! The page you're looking for doesn't exist.</p>
       <div className="space-y-4 md:space-y-0 md:space-x-4 flex flex-col md:flex-row">

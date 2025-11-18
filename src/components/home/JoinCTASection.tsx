@@ -17,7 +17,7 @@ const JoinCTASection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-3/5">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to join our thriving tech community?
+              Ready to join our tech community?
             </h2>
             <p className="text-xl text-white/90 mb-0">
               Become a member today to access exclusive content, join events, and connect with fellow tech enthusiasts.

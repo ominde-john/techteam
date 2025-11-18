@@ -26,11 +26,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container-custom flex justify-between items-center py-4">
         <Link to="/" className="flex items-center space-x-2">
-          <img 
-            src="/public/lovable-uploads/10cd6829-3061-4a7b-8551-9b0b5badcd43.png" 
-            alt="Tech Team Logo" 
-            className="h-10 w-10"
-          />
+          <img src="/tech team logo.png" alt="Tech Team Logo" className="h-16 w-16 rounded-full object-cover" />
           <span className="font-bold text-xl text-techblue">Tech Team</span>
         </Link>
 

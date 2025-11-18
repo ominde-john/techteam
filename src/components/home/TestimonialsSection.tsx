@@ -6,25 +6,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "John Maina",
       role: "Software Engineer",
       company: "TechCorp",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      image: "",
       quote: "Being a part of the Tech Team community has been invaluable for my career growth. The educational resources and networking opportunities have helped me stay at the cutting edge of technology."
-    },
-    {
-      name: "Michael Chen",
-      role: "Data Scientist",
-      company: "DataWorks Inc.",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      quote: "I've learned so much from the workshops and discussions. The community is incredibly supportive and the knowledge sharing is top-notch. Couldn't recommend it more highly!"
-    },
-    {
-      name: "Priya Patel",
-      role: "UX Designer",
-      company: "Creative Solutions",
-      image: "https://randomuser.me/api/portraits/women/65.jpg",
-      quote: "Tech Team provides a fantastic platform for designers and developers to collaborate. The events are well-organized and the content is always relevant to current industry trends."
     }
   ];
   

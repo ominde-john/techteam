@@ -4,25 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 const AboutPage = () => {
   const teamMembers = [{
-    name: "Alex Johnson",
+    name: "Jeremy Bravoge",
     role: "Founder & CEO",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
-    bio: "Alex has over 15 years of experience in the tech industry and founded Tech Team to create a supportive community for tech professionals."
+    image: "/public/556122ea2430e4e16d95ae48234de2f6_1736366820307_0.webp~3.jpg",
+    bio: "Jeremy has over 15 years of experience in the tech industry and founded Tech Team to create a supportive community for tech professionals."
   }, {
-    name: "Sarah Chen",
-    role: "Community Manager",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    bio: "Sarah oversees all community initiatives and ensures that Tech Team remains an inclusive and engaging space for all members."
+    name: "Isaac Keroro",
+    role: "Manager",
+    image: "/Isaac (2).jpg",
+    bio: "Keroro oversees all community initiatives and ensures that Tech Team remains an inclusive and engaging space for all members."
   }, {
-    name: "Michael Rodriguez",
-    role: "Content Director",
-    image: "https://randomuser.me/api/portraits/men/67.jpg",
-    bio: "Michael manages our educational content, blogs, and resources to ensure they provide value to community members."
+    name: "John Ominde",
+    role: "Director",
+    image: "/439227936_122142134894144804_8017458543335806102_n.jpg",
+    bio: "John manages our educational content, blogs, and resources to ensure they provide value to community members."
   }, {
-    name: "Priya Patel",
+    name: "Evans Chuchu",
     role: "Events Coordinator",
-    image: "https://randomuser.me/api/portraits/women/65.jpg",
-    bio: "Priya organizes and coordinates all Tech Team events, workshops, and conferences throughout the year."
+    image: "/Evans Chuchu.jpg",
+    bio: "Evans organizes and coordinates all Tech Team events, workshops, and conferences throughout the year."
   }];
   return <div>
       <PageHeader title="About Tech Team" description="Learn more about our mission, team, and the story behind Tech Team" />
@@ -33,7 +33,7 @@ const AboutPage = () => {
             <div>
               <SectionTitle title="Our Mission" subtitle="We strive to create an inclusive and collaborative tech community" />
               <p className="text-gray-600 mb-6">
-                Tech Team was founded with a simple but powerful vision: to create a vibrant community where technology enthusiasts, professionals, and learners can come together to share knowledge, collaborate on projects, and support each other's growth.
+                Tech Team was founded with a simple but powerful vision: to create a community where technology enthusiasts, professionals, and learners can come together to share knowledge, collaborate on projects, and support each other's growth.
               </p>
               <p className="text-gray-600 mb-6">
                 We believe that technology has the power to transform lives and communities, and our mission is to make that power accessible to everyone through education, networking, and hands-on experience.
@@ -48,7 +48,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Team Collaboration" className="rounded-xl shadow-lg max-w-full h-auto" />
+              <img src="/two team kist.jpg" alt="Team Collaboration" className="rounded-xl shadow-lg max-w-full h-auto" />
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="order-1 lg:order-2 flex justify-center lg:justify-start">
-              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="Tech History" className="rounded-xl shadow-lg max-w-full h-auto" />
+              <img src="/tech teams kist.jpg" alt="Tech History"  height="20" className="rounded-xl shadow-lg max-w-full h-auto" />
             </div>
           </div>
         </div>
