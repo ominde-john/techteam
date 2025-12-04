@@ -16,46 +16,6 @@ const DiscussionPage = () => {
       icon: "🤖",
       topics: 156,
       posts: 2341
-    },
-    {
-      id: "quantum",
-      name: "Quantum Computing",
-      description: "Explore quantum computing concepts, developments, and potential applications.",
-      icon: "⚛️",
-      topics: 78,
-      posts: 945
-    },
-    {
-      id: "blockchain",
-      name: "Blockchain & Cryptocurrencies",
-      description: "Dive into blockchain technology, cryptocurrencies, and decentralized applications.",
-      icon: "🔗",
-      topics: 124,
-      posts: 1876
-    },
-    {
-      id: "5g",
-      name: "5G & Telecommunication",
-      description: "Discuss the evolution of 5G technology and its impact on telecommunications.",
-      icon: "📡",
-      topics: 92,
-      posts: 1089
-    },
-    {
-      id: "cybersecurity",
-      name: "Cybersecurity",
-      description: "Share insights on cybersecurity trends, threats, and best practices.",
-      icon: "🔒",
-      topics: 143,
-      posts: 2205
-    },
-    {
-      id: "ar-vr",
-      name: "Augmented Reality & Virtual Reality",
-      description: "Explore the worlds of AR and VR technology and their diverse applications.",
-      icon: "🥽",
-      topics: 104,
-      posts: 1567
     }
   ];
 
@@ -69,46 +29,6 @@ const DiscussionPage = () => {
       date: "2 hours ago",
       replies: 24,
       views: 156
-    },
-    {
-      id: 2,
-      title: "Quantum Supremacy: Latest Breakthroughs and Challenges",
-      category: "Quantum Computing",
-      author: "Sarah Chen",
-      authorImage: "https://randomuser.me/api/portraits/women/44.jpg",
-      date: "5 hours ago",
-      replies: 17,
-      views: 89
-    },
-    {
-      id: 3,
-      title: "Securing Smart Contracts: Best Practices and Common Pitfalls",
-      category: "Blockchain & Cryptocurrencies",
-      author: "Michael Rodriguez",
-      authorImage: "https://randomuser.me/api/portraits/men/67.jpg",
-      date: "Yesterday",
-      replies: 31,
-      views: 203
-    },
-    {
-      id: 4,
-      title: "5G Network Security Concerns: Addressing the Challenges",
-      category: "5G & Telecommunication",
-      author: "Priya Patel",
-      authorImage: "https://randomuser.me/api/portraits/women/65.jpg",
-      date: "2 days ago",
-      replies: 19,
-      views: 127
-    },
-    {
-      id: 5,
-      title: "Implementing Zero Trust Security in Enterprise Networks",
-      category: "Cybersecurity",
-      author: "Alex Johnson",
-      authorImage: "https://randomuser.me/api/portraits/men/32.jpg",
-      date: "3 days ago",
-      replies: 26,
-      views: 184
     }
   ];
 

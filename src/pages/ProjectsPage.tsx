@@ -26,91 +26,16 @@ const ProjectsPage = () => {
       title: "Open Source AI Assistant",
       description:
         "A community-developed AI assistant that helps answer coding questions and debug errors in real-time.",
-      category: "Artificial Intelligence",
+      category: "AI Assistance",
       image:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=80",
-      author: "James Mwangi",
+        "/public/WhatsApp Image 2025-12-08 at 11.15.32 PM.jpeg",
+      author: "John Ominde",
       authorImage:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80",
-      technologies: ["Python", "TensorFlow", "React"],
+        "/439227936_122142134894144804_8017458543335806102_n.jpg",
+      technologies: ["Machine Language", "", "MongoDB"],
       stars: 145,
       forks: 32,
-    },
-    {
-      id: 2,
-      title: "Blockchain Voting System",
-      description:
-        "Secure and transparent voting system built on blockchain technology for organizational elections.",
-      category: "Blockchain",
-      image:
-        "https://images.unsplash.com/photo-1639322537231-2f206f0da5f7?auto=format&fit=crop&w=1400&q=80",
-      author: "Amina Okoro",
-      authorImage:
-        "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400&q=80",
-      technologies: ["Solidity", "Ethereum", "TypeScript"],
-      stars: 98,
-      forks: 24,
-    },
-    {
-      id: 3,
-      title: "AR Learning Platform",
-      description:
-        "Educational platform using augmented reality to make learning more interactive and engaging.",
-      category: "Augmented Reality",
-      image:
-        "https://images.unsplash.com/photo-1626379953704-055a697cbaa7?auto=format&fit=crop&w=1400&q=80",
-      author: "Kwame Mensah",
-      authorImage:
-        "https://images.unsplash.com/photo-1531123414780-fc0b13f1b4d1?auto=format&fit=crop&w=400&q=80",
-      technologies: ["Unity", "AR.js", "React Native"],
-      stars: 76,
-      forks: 15,
-    },
-    {
-      id: 4,
-      title: "5G Network Monitor",
-      description:
-        "Tool for monitoring and analyzing 5G network performance and coverage in real-time.",
-      category: "Telecommunications",
-      image:
-        "https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=1400&q=80",
-      author: "Zanele Dlamini",
-      authorImage:
-        "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=400&q=80",
-      technologies: ["Python", "Django", "D3.js"],
-      stars: 112,
-      forks: 27,
-    },
-    {
-      id: 5,
-      title: "Cybersecurity Training Simulator",
-      description:
-        "Interactive simulation platform for training employees on recognizing and preventing cyber attacks.",
-      category: "Cybersecurity",
-      image:
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=80",
-      author: "Fatima Ahmed",
-      authorImage:
-        "https://images.unsplash.com/photo-1545996124-fd8b6b2a3b3c?auto=format&fit=crop&w=400&q=80",
-      technologies: ["JavaScript", "Node.js", "Three.js"],
-      stars: 89,
-      forks: 21,
-    },
-    {
-      id: 6,
-      title: "Virtual Reality Meeting Space",
-      description:
-        "A VR environment for remote teams to collaborate and meet as if they were in the same physical space.",
-      category: "Virtual Reality",
-      image:
-        "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=1400&q=80",
-      author: "Mohamed Abdi",
-      authorImage:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80",
-      technologies: ["Unity", "WebXR", "React"],
-      stars: 134,
-      forks: 38,
-    },
+    }
   ];
 
   const categories = Array.from(new Set(projects.map((p) => p.category)));

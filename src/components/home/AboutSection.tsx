@@ -1,11 +1,11 @@
-
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, BookOpen, Calendar, Zap } from "lucide-react"; // Import necessary icons (Users, BookOpen, Calendar are now Lucide imports)
 import { Link } from "react-router-dom";
 import SectionTitle from "../SectionTitle";
 
 const AboutSection = () => {
   return (
-    <section className="section-padding bg-gray-50">
+    // UI Improvement: Changed background to a slightly darker shade for contrast, added inner shadow.
+    <section className="section-padding bg-gray-900 text-white shadow-inner shadow-black/50">
       <div className="container-custom">
         <SectionTitle
           title="About Our Community"
@@ -13,44 +13,67 @@ const AboutSection = () => {
           centered
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          <div className="bg-white rounded-xl shadow-md p-6 card-hover">
-            <div className="bg-techblue/10 text-techblue rounded-full h-12 w-12 flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        {/* --- Feature Cards Grid --- */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          
+          {/* 1. Community Hub */}
+          <div className="bg-gray-800 rounded-xl p-8 transition-all duration-300 transform hover:shadow-techgold/50 hover:shadow-2xl border border-gray-700 hover:border-techgold/70">
+            <div className="bg-techgold/10 text-techgold rounded-full h-14 w-14 flex items-center justify-center mb-6 border border-techgold/30">
+              <Users className="h-7 w-7" /> {/* Used Lucide icon */}
             </div>
-            <h3 className="text-xl font-semibold mb-3">Community Hub</h3>
-            <p className="text-gray-600 mb-4">Connect with like-minded tech enthusiasts and professionals. Share ideas, collaborate on projects, and grow your network.</p>
-            <Link to="/about" className="text-techblue hover:text-techblue-dark font-medium inline-flex items-center">
-              Learn more <ArrowRight className="ml-2 h-4 w-4" />
+            <h3 className="text-2xl font-bold mb-3 text-white">Community Hub</h3>
+            <p className="text-gray-400 mb-5">Connect with like-minded tech enthusiasts and professionals. Share ideas, collaborate on projects, and grow your network.</p>
+            <Link 
+              to="/about" 
+              className="text-techgold hover:text-white font-semibold inline-flex items-center transition-colors duration-200 group"
+            >
+              Learn more 
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" /> {/* UX: Added hover slide effect */}
             </Link>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 card-hover">
-            <div className="bg-techblue/10 text-techblue rounded-full h-12 w-12 flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          {/* 2. Educational Content */}
+          <div className="bg-gray-800 rounded-xl p-8 transition-all duration-300 transform hover:shadow-techgold/50 hover:shadow-2xl border border-gray-700 hover:border-techgold/70">
+            <div className="bg-techgold/10 text-techgold rounded-full h-14 w-14 flex items-center justify-center mb-6 border border-techgold/30">
+              <BookOpen className="h-7 w-7" /> {/* Used Lucide icon */}
             </div>
-            <h3 className="text-xl font-semibold mb-3">Educational Content</h3>
-            <p className="text-gray-600 mb-4">Access tutorials, workshops, and resources to enhance your skills. Learn from industry experts and stay updated with latest trends.</p>
-            <Link to="/blogs" className="text-techblue hover:text-techblue-dark font-medium inline-flex items-center">
-              Explore content <ArrowRight className="ml-2 h-4 w-4" />
+            <h3 className="text-2xl font-bold mb-3 text-white">Educational Content</h3>
+            <p className="text-gray-400 mb-5">Access tutorials, workshops, and resources to enhance your skills. Learn from industry experts and stay updated with latest trends.</p>
+            <Link 
+              to="/blogs" 
+              className="text-techgold hover:text-white font-semibold inline-flex items-center transition-colors duration-200 group"
+            >
+              Explore content 
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" /> {/* UX: Added hover slide effect */}
             </Link>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6 card-hover">
-            <div className="bg-techblue/10 text-techblue rounded-full h-12 w-12 flex items-center justify-center mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          {/* 3. Events & Updates */}
+          <div className="bg-gray-800 rounded-xl p-8 transition-all duration-300 transform hover:shadow-techgold/50 hover:shadow-2xl border border-gray-700 hover:border-techgold/70">
+            <div className="bg-techgold/10 text-techgold rounded-full h-14 w-14 flex items-center justify-center mb-6 border border-techgold/30">
+              <Calendar className="h-7 w-7" /> {/* Used Lucide icon */}
             </div>
-            <h3 className="text-xl font-semibold mb-3">Events & Updates</h3>
-            <p className="text-gray-600 mb-4">Participate in webinars, hackathons, and meetups. Stay informed about upcoming technology events and industry news.</p>
-            <Link to="/events" className="text-techblue hover:text-techblue-dark font-medium inline-flex items-center">
-              View events <ArrowRight className="ml-2 h-4 w-4" />
+            <h3 className="text-2xl font-bold mb-3 text-white">Events & Updates</h3>
+            <p className="text-gray-400 mb-5">Participate in webinars, hackathons, and meetups. Stay informed about upcoming technology events and industry news.</p>
+            <Link 
+              to="/events" 
+              className="text-techgold hover:text-white font-semibold inline-flex items-center transition-colors duration-200 group"
+            >
+              View events 
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" /> {/* UX: Added hover slide effect */}
             </Link>
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <Link to="/about" className="btn-primary inline-block">
+        {/* --- Main Call to Action --- */}
+        <div className="mt-16 text-center">
+          <Link 
+            to="/about" 
+            // UX/UI Improvement: Use primary button style for maximum impact and branding.
+            className="group bg-techgold hover:bg-yellow-600 text-black font-extrabold uppercase tracking-widest px-8 py-4 rounded-lg shadow-lg shadow-techgold/50 transition-all duration-300 inline-flex items-center transform hover:scale-[1.03]"
+          >
             Learn More About Us
+            <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
       </div>

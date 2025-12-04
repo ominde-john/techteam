@@ -33,28 +33,8 @@ const BlogsPage = () => {
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
       readTime: "10 min read"
     },
-    {
-      id: 3,
-      title: "Weekly Coding Challenge: Build a Weather App",
-      excerpt: "Test your skills with this week's coding challenge: create a weather application that fetches data from an API.",
-      category: "Coding Challenge",
-      author: "Michael Rodriguez",
-      authorImage: "https://randomuser.me/api/portraits/men/67.jpg",
-      date: "May 1, 2023",
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-      readTime: "15 min read"
-    },
-    {
-      id: 4,
-      title: "Review: The Latest Development Tools for 2023",
-      excerpt: "Our team reviews the most innovative and useful development tools that have emerged in 2023 so far.",
-      category: "Reviews",
-      author: "Roy Mutuota",
-      authorImage: "https://randomuser.me/api/portraits/women/65.jpg",
-      date: "March 18, 2023",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80",
-      readTime: "8 min read"
-    },
+   
+  
     {
       id: 5,
       title: "Member Spotlight: Jeremy Bravoge Journey from Beginner to Senior Developer",

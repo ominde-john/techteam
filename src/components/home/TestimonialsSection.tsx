@@ -1,17 +1,17 @@
-
 import { useState } from "react";
 import SectionTitle from "../SectionTitle";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MessageSquareQuote } from "lucide-react"; // Added MessageSquareQuote
 
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "John Maina",
+      name: "John Mark",
       role: "Software Engineer",
       company: "TechCorp",
-      image: "",
+      image: "/public/john mark.jpg",
       quote: "Being a part of the Tech Team community has been invaluable for my career growth. The educational resources and networking opportunities have helped me stay at the cutting edge of technology."
-    }
+    },
+    // NOTE: Add more testimonials here for the carousel to function and be useful.
   ];
   
   const [activeIndex, setActiveIndex] = useState(0);
@@ -24,65 +24,82 @@ const TestimonialsSection = () => {
     setActiveIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
 
+  const currentTestimonial = testimonials[activeIndex];
+
   return (
-    <section className="section-padding bg-white">
+    // UI Improvement: Changed to a slightly darker background (gray-900) for better contrast with techgold.
+    <section className="section-padding bg-gray-900 text-white">
       <div className="container-custom">
         <SectionTitle 
           title="What Our Members Say" 
           subtitle="Hear from our community members about their experiences with Tech Team"
           centered
+          icon={<MessageSquareQuote className="h-6 w-6 text-techgold" />} // Added icon for visual interest
         />
         
-        <div className="mt-12 relative max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-techblue-light to-techblue rounded-2xl p-8 md:p-10 text-white shadow-lg">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              <div className="md:w-1/4 flex justify-center">
+        <div className="mt-16 relative max-w-5xl mx-auto">
+          {/* Main Testimonial Card - High-Impact UI */}
+          <div className="bg-gray-800 rounded-2xl p-8 md:p-12 text-white shadow-2xl border-t-4 border-techgold transition-all duration-500 ease-in-out">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+              
+              {/* Image & Avatar Section */}
+              <div className="md:w-1/4 flex flex-col items-center text-center">
                 <img 
-                  src={testimonials[activeIndex].image} 
-                  alt={testimonials[activeIndex].name} 
-                  className="rounded-full w-24 h-24 object-cover border-4 border-white"
+                  src={currentTestimonial.image} 
+                  alt={currentTestimonial.name} 
+                  className="rounded-full w-28 h-28 object-cover border-4 border-techgold shadow-lg mb-4 transform group-hover:scale-105 transition-transform"
                 />
-              </div>
-              <div className="md:w-3/4">
-                <svg className="h-10 w-10 text-white opacity-30 mb-4" fill="currentColor" viewBox="0 0 32 32">
-                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                </svg>
-                <p className="text-lg md:text-xl italic mb-6">
-                  {testimonials[activeIndex].quote}
+                <p className="font-extrabold text-2xl text-techgold">{currentTestimonial.name}</p>
+                <p className="text-gray-400 text-sm italic">
+                  {currentTestimonial.role} @ {currentTestimonial.company}
                 </p>
-                <div>
-                  <p className="font-semibold text-xl">{testimonials[activeIndex].name}</p>
-                  <p className="text-white/80">
-                    {testimonials[activeIndex].role}, {testimonials[activeIndex].company}
-                  </p>
-                </div>
+              </div>
+              
+              {/* Quote Section */}
+              <div className="md:w-3/4 relative">
+                {/* Large, Custom Quote Icon */}
+                <MessageSquareQuote className="absolute top-[-30px] left-0 h-16 w-16 text-techgold opacity-20 transform -translate-x-4 -translate-y-4 hidden sm:block" />
+                
+                <p className="text-xl md:text-2xl font-medium leading-relaxed mb-6 pl-4 border-l-4 border-techgold/50">
+                  {currentTestimonial.quote}
+                </p>
+                
               </div>
             </div>
           </div>
           
-          <div className="flex justify-center mt-8 gap-4">
+          {/* Navigation and Indicators - Improved UX */}
+          <div className="flex justify-center mt-12 gap-4">
+            {/* Previous Button */}
             <button
               onClick={prevTestimonial}
-              className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 text-techblue transition-colors"
+              className="p-3 rounded-full bg-techgold shadow-md hover:bg-yellow-600 text-black transition-all duration-300 transform hover:scale-110 disabled:opacity-50"
               aria-label="Previous testimonial"
+              disabled={testimonials.length <= 1} // Disable if only one testimonial
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6 font-bold" />
             </button>
-            <div className="flex items-center gap-2">
+            
+            {/* Pagination Dots */}
+            <div className="flex items-center gap-3">
               {testimonials.map((_, index) => (
-                <span
+                <button
                   key={index}
-                  className={`h-2 w-2 rounded-full ${index === activeIndex ? 'bg-techblue' : 'bg-gray-300'}`}
                   onClick={() => setActiveIndex(index)}
-                ></span>
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  className={`h-3 w-3 rounded-full transition-colors duration-300 ${index === activeIndex ? 'bg-techgold shadow-lg shadow-techgold/50' : 'bg-gray-700 hover:bg-gray-600'}`}
+                ></button>
               ))}
             </div>
+            
+            {/* Next Button */}
             <button
               onClick={nextTestimonial}
-              className="p-2 rounded-full bg-white shadow-md hover:bg-gray-100 text-techblue transition-colors"
+              className="p-3 rounded-full bg-techgold shadow-md hover:bg-yellow-600 text-black transition-all duration-300 transform hover:scale-110 disabled:opacity-50"
               aria-label="Next testimonial"
+              disabled={testimonials.length <= 1} // Disable if only one testimonial
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-6 w-6 font-bold" />
             </button>
           </div>
         </div>

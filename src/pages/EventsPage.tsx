@@ -30,7 +30,7 @@ const EventsPage = () => {
       location: "Nairobi International Convention Centre",
       image:
         "/WhatsApp Image 2025-09-30 at 16.48.55.jpeg",
-      attendees: 2400,
+      attendees: 60,
       category: "Conference",
     },
     {
@@ -42,7 +42,7 @@ const EventsPage = () => {
       location: "Virtual Event",
       image:
         "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-      attendees: 430,
+      attendees: 50,
       category: "Workshop",
     },
     {
@@ -54,7 +54,7 @@ const EventsPage = () => {
       location: "Tech Hub Westlands",
       image:
         "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80",
-      attendees: 260,
+      attendees: 60,
       category: "Meetup",
     },
     {
@@ -66,7 +66,7 @@ const EventsPage = () => {
       location: "Virtual Event",
       image:
         "https://images.unsplash.com/photo-1581091226033-c7e8cee4f327?auto=format&fit=crop&w=800&q=80",
-      attendees: 510,
+      attendees: 60,
       category: "Webinar",
     },
   ];
@@ -81,7 +81,7 @@ const EventsPage = () => {
       location: "Nairobi Tech Hub",
       image:
         "https://images.unsplash.com/photo-1462899006636-339e08d1844e?auto=format&fit=crop&w=800&q=80",
-      attendees: 300,
+      attendees: 60,
       category: "Workshop",
     },
     {
@@ -93,7 +93,7 @@ const EventsPage = () => {
       location: "Virtual Event",
       image:
         "https://images.unsplash.com/photo-1587440871875-191322ee64b0?auto=format&fit=crop&w=800&q=80",
-      attendees: 540,
+      attendees: 60,
       category: "Webinar",
     },
   ];
