@@ -17,6 +17,17 @@ import {
   School,
   Handshake,
   Trophy,
+  Volume2,
+  Settings,
+  ShieldAlert,
+  FileText,
+  BookOpen,
+  Clipboard,
+  Video,
+  Mic,
+  Share2,
+  GitBranch,
+  Youtube,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -39,12 +50,13 @@ const Navbar = () => {
     { name: "Events", path: "/events" },
     { name: "Projects", path: "/projects", dropdown: true },
     { name: "Discussion", path: "/discussion" },
-    { name: "Career", path: "/career" },
+    { name: "Career", path: "/carrier" },
+    
     { name: "Contact", path: "/contact" },
   ];
 
   const projectDropdownLinks = [
-    { name: "Developers Community Hub", path: "/projects/community", icon: <Users className="text-techgold w-4 h-4" /> },
+    { name: "Developers Community Hub", path: "/projects", icon: <Users className="text-techgold w-4 h-4" /> },
     { name: "Tech Workshops & Bootcamps", path: "/projects/workshops", icon: <Wrench className="text-techgold w-4 h-4" /> },
     { name: "Cybersecurity Squad", path: "/projects/security", icon: <Shield className="text-techgold w-4 h-4" /> },
     { name: "AI & Robotics Unit", path: "/projects/ai-robotics", icon: <Cpu className="text-techgold w-4 h-4" /> },
@@ -53,7 +65,7 @@ const Navbar = () => {
   ];
 
   const aboutDropdownLinks = [
-    { name: "Who We Are", path: "/about/who-we-are", icon: <Users className="text-techgold w-4 h-4" /> },
+    { name: "Who We Are", path: "/about", icon: <Users className="text-techgold w-4 h-4" /> },
     { name: "Leadership & Governance", path: "/about/leadership", icon: <Building2 className="text-techgold w-4 h-4" /> },
     { name: "Our Community", path: "/about/community", icon: <Users className="text-techgold w-4 h-4" /> },
     { name: "Innovation & Impact", path: "/about/impact", icon: <Wrench className="text-techgold w-4 h-4" /> },
@@ -64,6 +76,20 @@ const Navbar = () => {
     { name: "Awards & Recognition", path: "/about/awards", icon: <Trophy className="text-techgold w-4 h-4" /> },
     { name: "Membership & Benefits", path: "/about/membership", icon: <Shield className="text-techgold w-4 h-4" /> },
   ];
+const mediaDropdownLinks = [
+  { name: "Press Releases", path: "/media/press-releases", icon: <Volume2 className="text-techgold w-4 h-4" /> },
+  { name: "Product Updates", path: "/media/product-updates", icon: <Settings className="text-techgold w-4 h-4" /> },
+  { name: "Security Alerts", path: "/media/security-alerts", icon: <ShieldAlert className="text-techgold w-4 h-4" /> },
+  { name: "Changelog", path: "/media/changelog", icon: <FileText className="text-techgold w-4 h-4" /> },
+  { name: "Engineering Blog", path: "/media/engineering-blog", icon: <BookOpen className="text-techgold w-4 h-4" /> },
+  { name: "Case Studies", path: "/media/case-studies", icon: <FileText className="text-techgold w-4 h-4" /> },
+  { name: "Tech Articles", path: "/media/tech-articles", icon: <Clipboard className="text-techgold w-4 h-4" /> },
+  { name: "Webinar Recordings", path: "/media/webinar-recordings", icon: <Video className="text-techgold w-4 h-4" /> },
+  { name: "Podcasts", path: "/media/podcasts", icon: <Mic className="text-techgold w-4 h-4" /> },
+  { name: "Social Media Channels", path: "/media/social-media", icon: <Share2 className="text-techgold w-4 h-4" /> },
+  { name: "GitHub", path: "/media/github", icon: <GitBranch className="text-techgold w-4 h-4" /> },
+  { name: "YouTube", path: "/media/youtube", icon: <Youtube className="text-techgold w-4 h-4" /> },
+];
 
   const CONTACT_PHONE = "0115000514";
   const CONTACT_EMAIL = "info@techteam.org";

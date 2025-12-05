@@ -11,6 +11,13 @@ const TestimonialsSection = () => {
       image: "/public/john mark.jpg",
       quote: "Being a part of the Tech Team community has been invaluable for my career growth. The educational resources and networking opportunities have helped me stay at the cutting edge of technology."
     },
+       {
+      name: "Jeremy bravoge",
+      role: "Backend Developer",
+      company: "TechCorp",
+      image: "/public/john mark.jpg",
+      quote: "Being part of this team has impact me alot on my tech journey and i really appreciate alot from this team."
+    },
     // NOTE: Add more testimonials here for the carousel to function and be useful.
   ];
   
