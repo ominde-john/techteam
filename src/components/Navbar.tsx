@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { 
-  Menu, 
-  X, 
-  Phone, 
-  Mail, 
+import {
+  Menu,
+  X,
+  Phone,
+  Mail,
   ChevronDown,
   Users,
   Wrench,
@@ -17,31 +17,50 @@ import {
   School,
   Handshake,
   Trophy,
-  Volume2,
-  Settings,
-  ShieldAlert,
-  FileText,
-  BookOpen,
-  Clipboard,
+  Newspaper,
+  Megaphone,
+  Image,
   Video,
   Mic,
+  Globe,
   Share2,
-  GitBranch,
-  Youtube,
 } from "lucide-react";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const [projectsDropdown, setProjectsDropdown] = useState(false);
   const [aboutDropdown, setAboutDropdown] = useState(false);
+  const [mediaDropdown, setMediaDropdown] = useState(false);
 
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileMediaOpen, setMobileMediaOpen] = useState(false);
 
-  const aboutRef = useRef(null);
-  const projectsRef = useRef(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
 
   const location = useLocation();
+  const isActive = (path: string) => location.pathname === path;
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        !aboutRef.current?.contains(e.target as Node) &&
+        !projectsRef.current?.contains(e.target as Node) &&
+        !mediaRef.current?.contains(e.target as Node)
+      ) {
+        setProjectsDropdown(false);
+        setAboutDropdown(false);
+        setMediaDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  /* ================= NAV DATA ================= */
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -49,204 +68,171 @@ const Navbar = () => {
     { name: "Blogs", path: "/blogs" },
     { name: "Events", path: "/events" },
     { name: "Projects", path: "/projects", dropdown: true },
+    { name: "Media", path: "/media", dropdown: true },
     { name: "Discussion", path: "/discussion" },
     { name: "Career", path: "/carrier" },
-    
     { name: "Contact", path: "/contact" },
   ];
 
-  const projectDropdownLinks = [
-    { name: "Developers Community Hub", path: "/projects", icon: <Users className="text-techgold w-4 h-4" /> },
-    { name: "Tech Workshops & Bootcamps", path: "/projects/workshops", icon: <Wrench className="text-techgold w-4 h-4" /> },
-    { name: "Cybersecurity Squad", path: "/projects/security", icon: <Shield className="text-techgold w-4 h-4" /> },
-    { name: "AI & Robotics Unit", path: "/projects/ai-robotics", icon: <Cpu className="text-techgold w-4 h-4" /> },
-    { name: "Web & Mobile Dev Missions", path: "/projects/missions", icon: <Rocket className="text-techgold w-4 h-4" /> },
-    { name: "Gaming & Innovation League", path: "/projects/gaming", icon: <Gamepad2 className="text-techgold w-4 h-4" /> },
+  const projectLinks = [
+    { name: "Developers Community Hub", path: "/projects", icon: <Users className="w-4 h-4 text-techgold" /> },
+    { name: "Tech Workshops & Bootcamps", path: "/projects/workshops", icon: <Wrench className="w-4 h-4 text-techgold" /> },
+    { name: "Cybersecurity Squad", path: "/projects/security", icon: <Shield className="w-4 h-4 text-techgold" /> },
+    { name: "AI & Robotics Unit", path: "/projects/ai-robotics", icon: <Cpu className="w-4 h-4 text-techgold" /> },
+    { name: "Web & Mobile Dev Missions", path: "/projects/missions", icon: <Rocket className="w-4 h-4 text-techgold" /> },
+    { name: "Gaming & Innovation League", path: "/projects/gaming", icon: <Gamepad2 className="w-4 h-4 text-techgold" /> },
   ];
 
-  const aboutDropdownLinks = [
-    { name: "Who We Are", path: "/about", icon: <Users className="text-techgold w-4 h-4" /> },
-    { name: "Leadership & Governance", path: "/about/leadership", icon: <Building2 className="text-techgold w-4 h-4" /> },
-    { name: "Our Community", path: "/about/community", icon: <Users className="text-techgold w-4 h-4" /> },
-    { name: "Innovation & Impact", path: "/about/impact", icon: <Wrench className="text-techgold w-4 h-4" /> },
-    { name: "Our Journey", path: "/about/journey", icon: <Rocket className="text-techgold w-4 h-4" /> },
-    { name: "Tech Programs", path: "/about/programs", icon: <School className="text-techgold w-4 h-4" /> },
-    { name: "Meet the Team", path: "/about/team", icon: <Users className="text-techgold w-4 h-4" /> },
-    { name: "Tech Partnerships", path: "/about/partnerships", icon: <Handshake className="text-techgold w-4 h-4" /> },
-    { name: "Awards & Recognition", path: "/about/awards", icon: <Trophy className="text-techgold w-4 h-4" /> },
-    { name: "Membership & Benefits", path: "/about/membership", icon: <Shield className="text-techgold w-4 h-4" /> },
+  const aboutLinks = [
+    { name: "Who We Are", path: "/about", icon: <Users className="w-4 h-4 text-techgold" /> },
+    { name: "Leadership & Governance", path: "/about/leadership", icon: <Building2 className="w-4 h-4 text-techgold" /> },
+    { name: "Our Community", path: "/about/community", icon: <Users className="w-4 h-4 text-techgold" /> },
+    { name: "Innovation & Impact", path: "/about/impact", icon: <Wrench className="w-4 h-4 text-techgold" /> },
+    { name: "Our Journey", path: "/about/journey", icon: <Rocket className="w-4 h-4 text-techgold" /> },
+    { name: "Tech Programs", path: "/about/programs", icon: <School className="w-4 h-4 text-techgold" /> },
+    { name: "Meet the Team", path: "/about/team", icon: <Users className="w-4 h-4 text-techgold" /> },
+    { name: "Partnerships", path: "/about/partnerships", icon: <Handshake className="w-4 h-4 text-techgold" /> },
+    { name: "Awards", path: "/about/awards", icon: <Trophy className="w-4 h-4 text-techgold" /> },
   ];
-const mediaDropdownLinks = [
-  { name: "Press Releases", path: "/media/press-releases", icon: <Volume2 className="text-techgold w-4 h-4" /> },
-  { name: "Product Updates", path: "/media/product-updates", icon: <Settings className="text-techgold w-4 h-4" /> },
-  { name: "Security Alerts", path: "/media/security-alerts", icon: <ShieldAlert className="text-techgold w-4 h-4" /> },
-  { name: "Changelog", path: "/media/changelog", icon: <FileText className="text-techgold w-4 h-4" /> },
-  { name: "Engineering Blog", path: "/media/engineering-blog", icon: <BookOpen className="text-techgold w-4 h-4" /> },
-  { name: "Case Studies", path: "/media/case-studies", icon: <FileText className="text-techgold w-4 h-4" /> },
-  { name: "Tech Articles", path: "/media/tech-articles", icon: <Clipboard className="text-techgold w-4 h-4" /> },
-  { name: "Webinar Recordings", path: "/media/webinar-recordings", icon: <Video className="text-techgold w-4 h-4" /> },
-  { name: "Podcasts", path: "/media/podcasts", icon: <Mic className="text-techgold w-4 h-4" /> },
-  { name: "Social Media Channels", path: "/media/social-media", icon: <Share2 className="text-techgold w-4 h-4" /> },
-  { name: "GitHub", path: "/media/github", icon: <GitBranch className="text-techgold w-4 h-4" /> },
-  { name: "YouTube", path: "/media/youtube", icon: <Youtube className="text-techgold w-4 h-4" /> },
-];
 
-  const CONTACT_PHONE = "0115000514";
-  const CONTACT_EMAIL = "info@techteam.org";
+  const mediaLinks = [
+    { name: "News & Announcements", path: "/media/news", icon: <Megaphone className="w-4 h-4 text-techgold" /> },
+    { name: "Press Releases", path: "/media/press", icon: <Newspaper className="w-4 h-4 text-techgold" /> },
+    { name: "Blog / Articles", path: "/media/blogs", icon: <Globe className="w-4 h-4 text-techgold" /> },
+    { name: "Gallery", path: "/media/gallery", icon: <Image className="w-4 h-4 text-techgold" /> },
+    { name: "Videos", path: "/media/videos", icon: <Video className="w-4 h-4 text-techgold" /> },
+    { name: "Podcasts", path: "/media/podcasts", icon: <Mic className="w-4 h-4 text-techgold" /> },
+    { name: "Media Appearances", path: "/media/appearances", icon: <Share2 className="w-4 h-4 text-techgold" /> },
+    { name: "Social Media Channels", path: "/media/socials", icon: <Globe className="w-4 h-4 text-techgold" /> },
+  ];
 
-  const isActive = (path: string) => location.pathname === path;
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        aboutRef.current && !aboutRef.current.contains(e.target) &&
-        projectsRef.current && !projectsRef.current.contains(e.target)
-      ) {
-        setProjectsDropdown(false);
-        setAboutDropdown(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  /* ================= JSX ================= */
 
   return (
-    <nav className="bg-white sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-white shadow-md">
 
       {/* TOP BAR */}
-      <div className="bg-gray-900 text-gray-300 text-sm py-2 hidden md:block border-b border-techgold/20">
-        <div className="container-custom flex justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <a href={`tel:${CONTACT_PHONE}`} className="flex items-center hover:text-techgold">
-              <Phone className="h-4 w-4 mr-1 text-techgold" />{CONTACT_PHONE}
+      <div className="hidden md:block bg-gray-900 text-gray-300 text-xs border-b border-techgold/20">
+        <div className="container-custom flex justify-between items-center py-2">
+          <div className="flex gap-6">
+            <a href="tel:0115000514" className="flex items-center gap-1 hover:text-techgold">
+              <Phone className="w-4 h-4 text-techgold" /> 0115000514
             </a>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center hover:text-techgold">
-              <Mail className="h-4 w-4 mr-1 text-techgold" />{CONTACT_EMAIL}
+            <a href="mailto:info@techteam.org" className="flex items-center gap-1 hover:text-techgold">
+              <Mail className="w-4 h-4 text-techgold" /> info@techteam.org
             </a>
           </div>
         </div>
       </div>
 
       {/* MAIN NAV */}
-      <div className="shadow-md">
-        <div className="container-custom flex justify-between items-center py-4">
+      <div className="container-custom flex justify-between items-center py-3">
 
-          <Link to="/" className="flex items-center space-x-2 group">
-            <img src="/tech team logo.png" className="h-10 w-10 rounded-full border-2 border-techblue group-hover:border-techgold transition" />
-            <span className="font-extrabold text-2xl text-gray-900 group-hover:text-techgold transition">Tech Team</span>
+        {/* LOGO */}
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/tech team logo.png" className="h-9 w-9 rounded-full border-2 border-techblue" />
+          <span className="text-xl font-bold">Tech Team</span>
+        </Link>
+
+        {/* DESKTOP NAV */}
+        <div className="hidden md:flex items-center gap-1">
+          {navItems.map(item =>
+            item.dropdown ? (
+              <div
+                key={item.name}
+                ref={item.name === "Projects" ? projectsRef : item.name === "About" ? aboutRef : mediaRef}
+                className="relative"
+              >
+                <button
+                  onClick={() => {
+                    setProjectsDropdown(item.name === "Projects" ? !projectsDropdown : false);
+                    setAboutDropdown(item.name === "About" ? !aboutDropdown : false);
+                    setMediaDropdown(item.name === "Media" ? !mediaDropdown : false);
+                  }}
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-techgold"
+                >
+                  {item.name} <ChevronDown className="w-4 h-4" />
+                </button>
+
+                {(item.name === "Projects" && projectsDropdown) ||
+                (item.name === "About" && aboutDropdown) ||
+                (item.name === "Media" && mediaDropdown) ? (
+                  <div className="absolute left-0 mt-3 w-[540px] grid grid-cols-2 gap-2
+                    rounded-xl bg-white p-4 border shadow-xl animate-in fade-in slide-in-from-top-2">
+                    {(item.name === "Projects"
+                      ? projectLinks
+                      : item.name === "About"
+                      ? aboutLinks
+                      : mediaLinks
+                    ).map(link => (
+                      <Link
+                        key={link.name}
+                        to={link.path}
+                        className="flex items-center gap-3 px-3 py-2 text-sm rounded-md
+                        hover:bg-gray-50 hover:text-techgold transition"
+                      >
+                        {link.icon} {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`px-3 py-2 text-sm font-medium rounded-md transition
+                  ${isActive(item.path)
+                    ? "text-techgold"
+                    : "text-gray-700 hover:text-techgold hover:bg-gray-100"}`}
+              >
+                {item.name}
+              </Link>
+            )
+          )}
+
+          <Link to="/dashboard">
+            <Button className="ml-3 h-9 text-sm bg-techblue hover:bg-techblue-dark">
+              Member Login
+            </Button>
           </Link>
-
-          <div className="hidden md:flex items-center gap-2 relative">
-
-            {navItems.map(item => (
-              item.dropdown ? (
-                <div
-                  key={item.name}
-                  ref={item.name === "Projects" ? projectsRef : aboutRef}
-                  className="relative"
-                >
-                  <button
-                    onClick={() => {
-                      if (item.name === "Projects") {
-                        setProjectsDropdown(!projectsDropdown);
-                        setAboutDropdown(false);
-                      } else {
-                        setAboutDropdown(!aboutDropdown);
-                        setProjectsDropdown(false);
-                      }
-                    }}
-                    className={`flex items-center px-3 py-2 font-semibold transition
-                      ${isActive(item.path)
-                        ? "text-techgold border-b-2 border-techgold"
-                        : "text-gray-700 hover:text-techgold"}`}
-                  >
-                    {item.name}
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </button>
-
-                  {item.name === "Projects" && projectsDropdown && (
-                    <div className="absolute left-0 mt-2 bg-white w-[620px] border border-gray-200 rounded-md p-6 z-50 shadow-lg grid grid-cols-2 gap-4">
-                      {projectDropdownLinks.map(link => (
-                        <Link key={link.name} to={link.path} className="flex items-center gap-3 py-2 hover:text-techgold text-gray-700 text-sm">
-                          {link.icon}
-                          {link.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {item.name === "About" && aboutDropdown && (
-                    <div className="absolute left-0 mt-2 bg-white w-[620px] border border-gray-200 rounded-md p-6 z-50 shadow-lg grid grid-cols-2 gap-4">
-                      {aboutDropdownLinks.map(link => (
-                        <Link key={link.name} to={link.path} className="flex items-center gap-3 py-2 hover:text-techgold text-gray-700 text-sm">
-                          {link.icon}
-                          {link.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link 
-                  key={item.name}
-                  to={item.path}
-                  className={`px-3 py-2 text-base font-semibold transition
-                    ${isActive(item.path)
-                      ? "text-techgold border-b-2 border-techgold"
-                      : "text-gray-700 hover:text-techgold hover:bg-gray-100"}`}
-                >
-                  {item.name}
-                </Link>
-              )
-            ))}
-
-            <Link to="/dashboard">
-              <Button className="ml-4 bg-techblue hover:bg-techblue-dark shadow-lg">Member Login</Button>
-            </Link>
-          </div>
-
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
-            {mobileMenuOpen ? <X /> : <Menu />}
-          </button>
         </div>
+
+        {/* MOBILE TOGGLE */}
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
+          {mobileMenuOpen ? <X /> : <Menu />}
+        </button>
       </div>
 
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white py-2 px-4 shadow-lg absolute w-full">
-
-          {navItems.map(item => (
+        <div className="md:hidden bg-white px-4 py-3 shadow-lg space-y-2">
+          {navItems.map(item =>
             item.dropdown ? (
               <div key={item.name}>
                 <button
                   onClick={() => {
-                    if (item.name === "Projects") {
-                      setMobileProjectsOpen(!mobileProjectsOpen);
-                      setMobileAboutOpen(false);
-                    } else {
-                      setMobileAboutOpen(!mobileAboutOpen);
-                      setMobileProjectsOpen(false);
-                    }
+                    setMobileProjectsOpen(item.name === "Projects" ? !mobileProjectsOpen : false);
+                    setMobileAboutOpen(item.name === "About" ? !mobileAboutOpen : false);
+                    setMobileMediaOpen(item.name === "Media" ? !mobileMediaOpen : false);
                   }}
-                  className="flex justify-between w-full px-3 py-2 font-medium text-gray-700 hover:text-techgold"
+                  className="w-full flex justify-between text-sm py-2 text-gray-700"
                 >
                   {item.name} <ChevronDown />
                 </button>
 
-                {item.name === "Projects" && mobileProjectsOpen && (
-                  <div className="pl-4 space-y-2">
-                    {projectDropdownLinks.map(sub => (
-                      <Link key={sub.name} to={sub.path} className="block text-sm hover:text-techgold">
-                        {sub.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-
-                {item.name === "About" && mobileAboutOpen && (
-                  <div className="pl-4 space-y-2">
-                    {aboutDropdownLinks.map(sub => (
-                      <Link key={sub.name} to={sub.path} className="block text-sm hover:text-techgold">
+                {(item.name === "Projects"
+                  ? mobileProjectsOpen
+                  : item.name === "About"
+                  ? mobileAboutOpen
+                  : mobileMediaOpen) && (
+                  <div className="pl-4 space-y-1">
+                    {(item.name === "Projects"
+                      ? projectLinks
+                      : item.name === "About"
+                      ? aboutLinks
+                      : mediaLinks).map(sub => (
+                      <Link key={sub.name} to={sub.path} className="block text-xs py-1 hover:text-techgold">
                         {sub.name}
                       </Link>
                     ))}
@@ -254,14 +240,14 @@ const mediaDropdownLinks = [
                 )}
               </div>
             ) : (
-              <Link key={item.name} to={item.path} className="block px-3 py-2 hover:text-techgold">
+              <Link key={item.name} to={item.path} className="block text-sm py-2">
                 {item.name}
               </Link>
             )
-          ))}
+          )}
 
           <Link to="/dashboard">
-            <Button className="mt-4 w-full bg-techblue hover:bg-techblue-dark">Member Login</Button>
+            <Button className="w-full mt-3">Member Login</Button>
           </Link>
         </div>
       )}
